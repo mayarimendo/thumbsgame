@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    <title>Thumbs Single Player Game</title>
+    <title>Thumbs 4-Player Game</title>
 
     <head>
         <link href="styles.css" rel="stylesheet">
@@ -15,59 +15,92 @@
         <div>
             <h4 id="instructions" class="normal-text"></h4>
         </div>
-        <table style="width:30%; height:40%;">
-            <tr>
-                <th id="default">
-                    <img src="thumborange.png" alt="thumbs up" class="orangethumb">
-                    <img src="thumborange.png" alt="thumbs up" class="orangethumb">
-                </th>
-            </tr>
-
-        </table>
-        <button id="start">
-            <h1>START</h1>
-        </button>
-        <h1 class="large-text" id="ready"></h1>
-        <h3 id="urgreen" style="display:none; color:#fff;">You are green. Please select your prediction.</h3>
         <div>
-            <h4 style="display:none; color:#fff;" id="label">Predicted # of thumbs</h2>
-            <div>
-                <button class="predict" id="0">0</button>
-                <button class="predict" id="1">1</button>
-                <button class="predict" id="2">2</button>
-                <button class="predict" id="3">3</button>
-                <button class="predict" id="4">4</button>
-                <button class="predict" id="5">5</button>
-                <button class="predict" id="6">6</button>
-                <button class="predict" id="7">7</button>
-                <button class="predict" id="8">8</button>
-            </div>
-            <h4 id="urpredict" style="color:#fff;"></h4>
-            <button id="nextRound" style="display:none;">Check Prediction</button>
-            <h4 id="correct" style="color:#fff;"></h4>
-
-            <!-- <img src="none-png.webp" alt="none" class="none"> -->
-
-            <table style="display:none;" id="gametable">
+            <table style="width:30%; height:40%;">
                 <tr>
-                    <th id="player1">
-                        <img id="p1image" src="two thumbs.webp" alt="two thumbs">
-                    </th>
-                    <th id="player2">
-                        <img id="p2image" src="two thumbs.webp" alt="two thumbs">
+                    <th id="default">
+                        <img src="thumborange.png" alt="thumbs up" class="orangethumb">
+                        <img src="thumborange.png" alt="thumbs up" class="orangethumb">
                     </th>
                 </tr>
-                <tr>
-                    <th id="player3">
-                        <img id="p3image" src="two thumbs.webp" alt="two thumbs">
-                    </th>
-                    <th id="mainplayer">
-                        <img id="MPimage" src="two thumbs.webp" alt="two thumbs">
-                    </th>
-                </tr>
+
             </table>
-            <h1 id="TorF" style="color:#fff;"></h1>
-            <h1 id="winner" style="color:#fff;"></h1>
+            <button id="start">
+                <h1>START</h1>
+            </button>
+        </div>
+        <h1 class="large-text" id="ready"></h1>
+        <div id="gamepage" style="display:flex;">
+            <div>
+                <h3 id="urgreen" style="display:none; color:#fff;">You are green. Please select your prediction.</h3>
+                <div>
+                    <h4 class="predict" id="choice" style="color:#fff;">Choose how many thumbs you will have up.</h4>
+                        <div>
+                            <button class="predict" id="0thumbs">0</button>
+                            <button class="predict" id="1thumb">1</button>
+                            <button class="predict" id="2thumbs">2</button>
+                        </div>
+                    <h4 style="display:none; color:#fff;" id="label">Predicted # of thumbs</h2>
+                    <div>
+                        <div>
+                            <button class="predict" id="0">0</button>
+                            <button class="predict" id="1">1</button>
+                            <button class="predict" id="2">2</button>
+                            <button class="predict" id="3">3</button>
+                            <button class="predict" id="4">4</button>
+                            <button class="predict" id="5">5</button>
+                            <button class="predict" id="6">6</button>
+                            <button class="predict" id="7">7</button>
+                            <button class="predict" id="8">8</button>
+                        </div>
+                        <h4 id="urpredict" style="color:#fff;"></h4>
+                        <button id="nextRound" style="display:none;">Check Prediction</button>
+                        <h4 id="correct" style="color:#fff;"></h4>
+                        <h1 id="TorF" style="color:#fff;"></h1>
+                        <h1 id="winner" style="color:#fff;"></h1>
+                    </div>
+                    <table style="display:none; margin:0" id="wintable">
+                        <tr>
+                            <th>P1 Wins</th>
+                            <th>P2 Wins</th>
+                        </tr>
+                        <tr>
+                            <td id="p1wins">0</td>
+                            <td id="p2wins">0</td>
+                        </tr>
+                        <tr>
+                            <th>P3 Wins</th>
+                            <th>Your Wins</th>
+                        </tr>
+                        <tr>
+                            <td id="p3wins">0</td>
+                            <td id="urwins">0</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+                <!-- <img src="none-png.webp" alt="none" class="none"> -->
+
+            <div>
+                <table style="display:none;" id="gametable">
+                    <tr>
+                        <th id="player1">
+                            <img id="p1image" src="two thumbs.webp" alt="two thumbs">
+                        </th>
+                        <th id="player2">
+                            <img id="p2image" src="two thumbs.webp" alt="two thumbs">
+                        </th>
+                    </tr>
+                    <tr>
+                        <th id="player3">
+                            <img id="p3image" src="two thumbs.webp" alt="two thumbs">
+                        </th>
+                        <th id="mainplayer">
+                            <img id="MPimage" src="two thumbs.webp" alt="two thumbs">
+                        </th>
+                    </tr>
+                </table>
+            </div>
         </div>
     </body>
     <script src="script.js"></script>
