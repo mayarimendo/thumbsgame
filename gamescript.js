@@ -1,13 +1,10 @@
-function delay(miliseconds) {
-        return new Promise(resolve => setTimeout(resolve, miliseconds));
-}
+setTimeout(function() {
+    document.getElementById("ready").textContent = "HERE WE GO!";
+}, 1500);
 
- await delay(1500);
-document.getElementById("ready").textContent = "HERE WE GO!";
-await delay(1200);
-
-document.getElementById("ready").remove();
-await delay(2000);
+setTimeout(function() {
+    document.getElementById("ready").remove();
+}, 1500);
 
 // Display starting screen
 document.getElementById("gametable").style.display ='block';
