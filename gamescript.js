@@ -204,5 +204,4 @@ document.getElementById("nextRound").addEventListener("click", function() {
                 document.querySelector('#winner').innerHTML = 'You LOSE!';
         }
 })
-})
 
