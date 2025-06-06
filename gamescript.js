@@ -1,10 +1,10 @@
 setTimeout(function() {
-    document.getElementById("ready").textContent = "HERE WE GO!";
+    document.getElementById("ready").innerHTML = "HERE WE GO!";
 }, 1500);
 
 setTimeout(function() {
     document.getElementById("ready").remove();
-}, 1500);
+}, 3000);
 
 // Display starting screen
 document.getElementById("gametable").style.display ='block';
