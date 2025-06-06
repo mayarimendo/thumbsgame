@@ -182,22 +182,24 @@ setTimeout(function () {
 
 
     while (mainplayerhands > 0 || p1hands > 0 || p2hands > 0 || p3hands > 0) {
-        chooseNumberThumbs();
-        document.getElementById("nextRound").addEventListener("click", function() {
-                generateImages();
-                calculateTotal();
-                checkGuess(mainplayerhands);
-                // alert(total);
+        for (let i=0; i < 4; i++;) {
+            chooseNumberThumbs();
+            document.getElementById("nextRound").addEventListener("click", function() {
+                    generateImages();
+                    calculateTotal();
+                    checkGuess(mainplayerhands);
+                    // alert(total);
 
-                document.getElementById("correct").innerHTML = "Correct guesses: " + correct;
+                    document.getElementById("correct").innerHTML = "Correct guesses: " + correct;
 
-                if (mainplayerhands == 0) {
-                        document.querySelector('#winner').innerHTML = 'You WIN!';
-                }
-                else if (p1hands == 0 || p2hands == 0 || p3hands == 0) {
-                        document.querySelector('#winner').innerHTML = 'You LOSE!';
-                }
-        })
+                    if (mainplayerhands == 0) {
+                            document.querySelector('#winner').innerHTML = 'You WIN!';
+                    }
+                    else if (p1hands == 0 || p2hands == 0 || p3hands == 0) {
+                            document.querySelector('#winner').innerHTML = 'You LOSE!';
+                    }
+            })
+        }
     }
 
 }, 4300)
