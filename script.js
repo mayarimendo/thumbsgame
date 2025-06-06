@@ -1,4 +1,4 @@
-// CODE :D
+// first page
 
 // type out instructions
 let text = "HOW TO PLAY: Each 'player' will take turns calling out the number of thumbs they predict will be up. When it's NOT your turn, select which thumbs you will have up. If the prediction matches the actual total number of thumbs up, the person whose turn it is will earn a win. The goal is to have no hands left in the game.";
