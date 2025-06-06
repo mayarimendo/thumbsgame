@@ -149,7 +149,7 @@ setTimeout(function () {
             document.getElementById("urpredict").innerHTML = "Your prediction:" + guess;
     })
     document.getElementById("2").addEventListener("click", function() {
-            let guess = 2;
+            guess = 2;
             document.getElementById("urpredict").innerHTML = "Your prediction:" + guess;
     })
     document.getElementById("3").addEventListener("click", function() {
