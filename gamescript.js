@@ -142,35 +142,35 @@ setTimeout(function () {
 
     document.getElementById("0").addEventListener("click", function() {
             guess = 0;
-            document.getElementById("urpredict").innerHTML = "Your prediction:" + guess;
+            document.getElementById("urpredict").innerHTML = "Your prediction: " + guess;
     })
     document.getElementById("1").addEventListener("click", function() {
             guess = 1;
-            document.getElementById("urpredict").innerHTML = "Your prediction:" + guess;
+            document.getElementById("urpredict").innerHTML = "Your prediction: " + guess;
     })
     document.getElementById("2").addEventListener("click", function() {
             guess = 2;
-            document.getElementById("urpredict").innerHTML = "Your prediction:" + guess;
+            document.getElementById("urpredict").innerHTML = "Your prediction: " + guess;
     })
     document.getElementById("3").addEventListener("click", function() {
             guess = 3;
-            document.getElementById("urpredict").innerHTML = "Your prediction:" + guess;
+            document.getElementById("urpredict").innerHTML = "Your prediction: " + guess;
     })
     document.getElementById("4").addEventListener("click", function() {
             guess = 4;
-            document.getElementById("urpredict").innerHTML = "Your prediction:" + guess;
+            document.getElementById("urpredict").innerHTML = "Your prediction: " + guess;
     })
     document.getElementById("5").addEventListener("click", function() {
             guess = 5;
-            document.getElementById("urpredict").innerHTML = "Your prediction:" + guess;
+            document.getElementById("urpredict").innerHTML = "Your prediction: " + guess;
     })
     document.getElementById("6").addEventListener("click", function() {
             guess = 6;
-            document.getElementById("urpredict").innerHTML = "Your prediction:" + guess;
+            document.getElementById("urpredict").innerHTML = "Your prediction: " + guess;
     })
     document.getElementById("7").addEventListener("click", function() {
             guess = 7;
-            document.getElementById("urpredict").innerHTML = "Your prediction:" + guess;
+            document.getElementById("urpredict").innerHTML = "Your prediction: " + guess;
     })
     document.getElementById("8").addEventListener("click", function() {
             guess = 8;
