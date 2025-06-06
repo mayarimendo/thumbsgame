@@ -183,6 +183,9 @@ setTimeout(function () {
 
     while (mainplayerhands > 0 || p1hands > 0 || p2hands > 0 || p3hands > 0) {
         for (let i=0; i < 4; i++;) {
+
+            // change to say whose turn it is id="playerturn" need to make array with player names
+
             chooseNumberThumbs();
             document.getElementById("nextRound").addEventListener("click", function() {
                     generateImages();
