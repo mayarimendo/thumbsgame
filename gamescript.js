@@ -1,10 +1,10 @@
 setTimeout(function() {
     document.getElementById("ready").innerHTML = "HERE WE GO!";
-}, 1500);
+}, 1000)
 
 setTimeout(function() {
     document.getElementById("ready").remove();
-}, 3000);
+}, 3000)
 
 // Display starting screen
 setTimeout(function () {
@@ -17,7 +17,7 @@ setTimeout(function () {
     let predictions = document.querySelectorAll('.predict');
     predictions.forEach(element => {
             element.style.display = 'inline-block';
-    })
+        })
 
 
     // # hands still in for each player
@@ -36,8 +36,8 @@ setTimeout(function () {
     // Array for hands score (manipulatable for calculations)
     let handsleft = [p1hands, p2hands, p3hands, mainplayerhands];
 
-    // Array for each player's wins
-    let wins = []
+    // Array for each player name
+    let player = ["Player 1's", "Player 2's", "Player 3's", "your"]
 
     // Array for random images to choose from
     let images = ["none-png.webp", "thumb up-png.png", "two thumbs.webp"]
@@ -92,20 +92,10 @@ setTimeout(function () {
             if (guess == total) {
                     document.querySelector('#TorF').innerHTML = 'Correct guess!';
                     playerhands = playerhands - 1;
-                    handsleft = [p1hands, p2hands, p3hands, mainplayerhands];
+                    //alert(playerhands);
                     correct = correct + 1;
-
-
-                    //update table. consider usage/purpose of 'correct'
-
-
-                    // document.querySelector('#TorF').innerHTML = 'Correct guess!';
-
-
-
-
-
-
+                    document.querySelector('#urwins').innerHTML = correct;
+                    //handsleft = [p1hands, p2hands, p3hands, mainplayerhands]
             }
             else {
                     document.querySelector('#TorF').innerHTML = 'Better luck next round!';
@@ -181,28 +171,60 @@ setTimeout(function () {
 
 
 
-    while (mainplayerhands > 0 || p1hands > 0 || p2hands > 0 || p3hands > 0) {
-        for (let i=0; i < 4; i++;) {
+    //while (mainplayerhands > 0 || p1hands > 0 || p2hands > 0 || p3hands > 0) {
+        for (let i=0; i < 4; i++) {
+                document.querySelector('#playerturn').innerHTML = 'It is ' + player[i] + ' turn';
+                chooseNumberThumbs();
+                if (handsleft[i] != mainplayerhands) {
 
+
+                        // REMOVE EVENT LISTENER
+                        // NEED TO MAKE FUNCTION FOR WHAT'S GOING ON IN ADDED EVENT LISTENER
+
+
+                        generateImages();
+                        guess = Math.floor(Math.random() * 9);
+                        calculateTotal();
+                        checkGuess(handsleft[i]);
+                }
+                else {
+                        document.getElementById("nextRound").addEventListener("click", function() {
+                                generateImages();
+                                calculateTotal();
+                                checkGuess(handsleft[i]);
+                                // alert(total);
+
+                                document.getElementById("correct").innerHTML = "Correct guesses: " + correct;
+
+                                if (correct == 2) {
+                                        document.querySelector('#winner').innerHTML = 'You WIN!';
+                                }
+                                else if (p1hands == 0 || p2hands == 0 || p3hands == 0) {
+                                        document.querySelector('#winner').innerHTML = 'You LOSE!';
+                                }
+                        })
+                }
+        }
             // change to say whose turn it is id="playerturn" need to make array with player names
 
-            chooseNumberThumbs();
-            document.getElementById("nextRound").addEventListener("click", function() {
-                    generateImages();
-                    calculateTotal();
-                    checkGuess(mainplayerhands);
-                    // alert(total);
+        document.querySelector('#playerturn').innerHTML = 'It is ' + player[3] + ' turn';
+        chooseNumberThumbs();
+        document.getElementById("nextRound").addEventListener("click", function() {
+                generateImages();
+                calculateTotal();
+                checkGuess(mainplayerhands);
+                // alert(total);
 
-                    document.getElementById("correct").innerHTML = "Correct guesses: " + correct;
+                document.getElementById("correct").innerHTML = "Correct guesses: " + correct;
 
-                    if (mainplayerhands == 0) {
-                            document.querySelector('#winner').innerHTML = 'You WIN!';
-                    }
-                    else if (p1hands == 0 || p2hands == 0 || p3hands == 0) {
-                            document.querySelector('#winner').innerHTML = 'You LOSE!';
-                    }
-            })
-        }
-    }
+                if (correct == 2) {
+                        document.querySelector('#winner').innerHTML = 'You WIN!';
+                }
+                else if (p1hands == 0 || p2hands == 0 || p3hands == 0) {
+                        document.querySelector('#winner').innerHTML = 'You LOSE!';
+                }
+        })
+        //}
+    //}
 
-}, 4300)
+}, 3000)
