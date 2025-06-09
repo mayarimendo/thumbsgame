@@ -209,7 +209,7 @@ setTimeout(function() {
     }
 
     // Asked for help from AI for how to implement the player array with key:value pairs
-    // Asked for help from AI for how to loop through cycles where each player gets a turn
+    // Asked for help from AI for how to loop through cycles where each player gets a turn (help with logic)
     function runRound(playerIndex = 0) {
         if (playerScore.some(playeR => playeR.wins >= 2)) {
                 endGame();
@@ -239,6 +239,7 @@ setTimeout(function() {
                 // write out current prediction
                 guessClick(currentPlayer.name);
                 // run game
+                // help from AI on how to use onclick instead of a billion eventListeners
                 document.getElementById("nextRound").onclick = () => {
                         if (!thumbsupChosen) {
                                 alert("Please choose how many thumbs you're showing!");
