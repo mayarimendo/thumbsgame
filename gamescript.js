@@ -33,9 +33,6 @@ setTimeout(function() {
     let thumbsup = 0;
     let thumbsupChosen = false;
 
-    // Array for hands score (manipulatable for calculations)
-    //let handsleft = [p1hands, p2hands, p3hands, mainplayerhands];
-
     // Array for each player name for text stuff
     let player = ["Player 1's", "Player 2's", "Player 3's", "your"]
     // Array for name and score
@@ -104,7 +101,6 @@ setTimeout(function() {
                     playerwins.wins++;
                     //alert("guess = " + guess);
                     //alert("total = " + total);
-                    //handsleft = [p1hands, p2hands, p3hands, mainplayerhands]
             }
             else {
                     document.querySelector('#TorF').innerHTML = 'Better luck next round!';
@@ -204,30 +200,6 @@ setTimeout(function() {
         document.getElementById("8").addEventListener("click", click8)
     }
 
-    function runYourTurn() {
-        generateImages();
-        calculateTotal();
-        checkGuess(mainplayerwins);
-        // alert(total);
-
-        document.getElementById("correct").innerHTML = "Correct guesses: " + mainplayerwins;
-        document.querySelector('#urwins').innerHTML = mainplayerwins;
-
-        if (mainplayerwins == 2) {
-                document.querySelector('#winner').innerHTML = 'You WIN!';
-        }
-        else if (p1wins == 2 || p2wins == 2 || p3wins == 2) {
-                document.querySelector('#winner').innerHTML = 'You LOSE!';
-        }
-    }
-
-    function runBotTurn(playerwins) {
-        generateImages();
-        calculateTotal();
-        checkGuess(playerwins);
-        document.querySelector('#p3wins').innerHTML = playerwins;
-    }
-
     function updateWinTable() {
         document.querySelector('#p1wins').innerHTML = playerScore[0].wins;
         document.querySelector('#p2wins').innerHTML = playerScore[1].wins;
@@ -319,67 +291,5 @@ setTimeout(function() {
     chooseNumberThumbs();
     runRound();
 
-/*
-                document.getElementById("0").removeEventListener("click", click0())
-                document.getElementById("1").removeEventListener("click", click1())
-                document.getElementById("2").removeEventListener("click", click2())
-                document.getElementById("3").removeEventListener("click", click3())
-                document.getElementById("4").removeEventListener("click", click4())
-                document.getElementById("5").removeEventListener("click", click5())
-                document.getElementById("6").removeEventListener("click", click6())
-                document.getElementById("7").removeEventListener("click", click7())
-                document.getElementById("8").removeEventListener("click", click8())
 
-                // P1 TURN
-                // bot's prediction
-                document.querySelector('#playerturn').innerHTML = 'It is ' + player[0] + ' turn';
-                document.querySelector('#nextRound').innerHTML = 'Check ' + player[0] + ' prediction';
-                chooseNumberThumbs();
-                guess = Math.floor(Math.random() * 9);
-                guessClick(player[0]);
-                // change functionality of event listener
-                document.getElementById("nextRound").removeEventListener("click", runYourTurn)
-                document.getElementById("nextRound").addEventListener("click", function() {
-                        runBotTurn(p1wins);
-                        document.querySelector('#p1wins').innerHTML = p1wins;
-                        // alert("p1wins = " + p1wins);
-
-                        // P2 TURN
-                        document.querySelector('#playerturn').innerHTML = 'It is ' + player[1] + ' turn';
-                        document.querySelector('#nextRound').innerHTML = 'Check ' + player[1] + ' prediction';
-                        guess = Math.floor(Math.random() * 9);
-                        guessClick(player[1]);
-                        document.getElementById("nextRound").removeEventListener("click", runYourTurn)
-                        document.getElementById("nextRound").addEventListener("click", function() {
-                                runBotTurn(p2wins);
-                                document.querySelector('#p2wins').innerHTML = p2wins;
-                                //alert("p2wins = " + p2wins);
-
-                                // P3 TURN
-                                document.querySelector('#playerturn').innerHTML = 'It is ' + player[2] + ' turn';
-                                document.querySelector('#nextRound').innerHTML = 'Check ' + player[2] + ' prediction';
-                                guess = Math.floor(Math.random() * 9);
-                                guessClick(player[2]);
-                                document.getElementById("nextRound").removeEventListener("click", runYourTurn)
-                                document.getElementById("nextRound").addEventListener("click", function() {
-                                        runBotTurn(p3wins);
-                                        document.querySelector('#p3wins').innerHTML = p3wins;
-                                        //alert("p3wins = " + p3wins);
-
-                                        // YOUR TURN
-                                        document.querySelector('#playerturn').innerHTML = 'It is ' + player[3] + ' turn';
-                                        document.querySelector('#nextRound').innerHTML = 'Check ' + player[3] + ' prediction';
-                                        // return prediction functionality
-                                        predict();
-                                        guessClick(player[3]);
-                                        // change functionality of event listener and run your turn
-                                        // document.getElementById("nextRound").removeEventListener("click", runBotTurn(p1wins))
-                                        // document.getElementById("nextRound").removeEventListener("click", runBotTurn(p2wins))
-                                        // document.getElementById("nextRound").removeEventListener("click", runBotTurn(p3wins))
-                                        document.getElementById("nextRound").addEventListener("click", function() {
-                                                runYourTurn();
-                                        })
-                                })
-                        })
-                })*/
 }, 3000)
