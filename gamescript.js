@@ -7,7 +7,7 @@ setTimeout(function() {
 }, 3000)
 
 // Display starting screen
-setTimeout(function () {
+setTimeout(function() {
     document.getElementById("gametable").style.display ='block';
     document.getElementById("urgreen").style.display = 'block';
     document.getElementById("label").style.display = 'block';
@@ -21,23 +21,33 @@ setTimeout(function () {
 
 
     // # hands still in for each player
-    let p1hands = 2;
-    let p2hands = 2;
-    let p3hands = 2;
-    let mainplayerhands = 2;
+    let p1wins = 0;
+    let p2wins = 0;
+    let p3wins = 0;
+    let mainplayerwins = 0;
 
     // keep track of total # of thumbs
     let total = 0;
     // Create variable for guess and correct guesses
-    let correct = 0;
-    let guess = 8;
+    let guess = 0;
     let thumbsup = 0;
+    let thumbsupChosen = false;
 
     // Array for hands score (manipulatable for calculations)
-    let handsleft = [p1hands, p2hands, p3hands, mainplayerhands];
+    //let handsleft = [p1hands, p2hands, p3hands, mainplayerhands];
 
-    // Array for each player name
+    // Array for each player name for text stuff
     let player = ["Player 1's", "Player 2's", "Player 3's", "your"]
+    // Array for name and score
+    let playerScore = [
+        { name: "Player 1's", wins: 0 },
+        { name: "Player 2's", wins: 0 },
+        { name: "Player 3's", wins: 0 },
+        { name: "Your", wins: 0 }
+    ];
+
+    // for playerScore array
+    let playerIndex = 0;
 
     // Array for random images to choose from
     let images = ["none-png.webp", "thumb up-png.png", "two thumbs.webp"]
@@ -88,13 +98,12 @@ setTimeout(function () {
             }
     }
 
-    function checkGuess(playerhands) {
+    function checkGuess(playerwins) {
             if (guess == total) {
                     document.querySelector('#TorF').innerHTML = 'Correct guess!';
-                    playerhands = playerhands - 1;
-                    //alert(playerhands);
-                    correct = correct + 1;
-                    document.querySelector('#urwins').innerHTML = correct;
+                    playerwins.wins++;
+                    //alert("guess = " + guess);
+                    //alert("total = " + total);
                     //handsleft = [p1hands, p2hands, p3hands, mainplayerhands]
             }
             else {
@@ -107,124 +116,270 @@ setTimeout(function () {
             document.getElementById("0thumbs").addEventListener("click", function() {
                     thumbsup = 0;
                     document.getElementById("MPimage").src = images[thumbsup];
+                    thumbsupChosen = true;
+                    document.getElementById("nextRound").disabled = false;
             })
             document.getElementById("1thumb").addEventListener("click", function() {
                     thumbsup = 1;
                     document.getElementById("MPimage").src = images[thumbsup];
+                    thumbsupChosen = true;
+                    document.getElementById("nextRound").disabled = false;
             })
             document.getElementById("2thumbs").addEventListener("click", function() {
                     thumbsup = 2;
                     document.getElementById("MPimage").src = images[thumbsup];
+                    thumbsupChosen = true;
+                    document.getElementById("nextRound").disabled = false;
             })
+    }
+
+    function endGame() {
+        if (playerScore[3].wins >= 2) {
+                document.querySelector('#winner').innerHTML = 'You WIN!';
+        } else {
+                document.querySelector('#winner').innerHTML = 'You LOSE!';
+        }
+        document.getElementById("nextRound").disabled = true;
     }
 
     // function to play one round
     function generateImages() {
-            // change value of guess and see if it matches the total
-            let buttonClicked = false;
-
             // Choose random image for each player
             document.getElementById("p1image").src = images[Math.floor(Math.random() * images.length)];
             document.getElementById("p2image").src = images[Math.floor(Math.random() * images.length)];
             document.getElementById("p3image").src = images[Math.floor(Math.random() * images.length)];
     }
 
+    // function to write out prediction on screen
+    function guessClick(player) {
+        document.getElementById("urpredict").innerHTML = player + " prediction: " + guess;
+    }
+    // choose your predictions
+    function click0() {
+        guess = 0;
+        guessClick("Your");
+    }
+    function click1() {
+        guess = 1;
+        guessClick("Your");
+    }
+    function click2() {
+        guess = 2;
+        guessClick("Your");
+    }
+    function click3() {
+        guess = 3;
+        guessClick("Your");
+    }
+    function click4() {
+        guess = 4;
+        guessClick("Your");
+    }
+    function click5() {
+        guess = 5;
+        guessClick("Your");
+    }
+    function click6() {
+        guess = 6;
+        guessClick("Your");
+    }
+    function click7() {
+        guess = 7;
+        guessClick("Your");
+    }
+    function click8() {
+        guess = 8;
+        guessClick("Your");
+    }
 
-    document.getElementById("0").addEventListener("click", function() {
-            guess = 0;
-            document.getElementById("urpredict").innerHTML = "Your prediction: " + guess;
-    })
-    document.getElementById("1").addEventListener("click", function() {
-            guess = 1;
-            document.getElementById("urpredict").innerHTML = "Your prediction: " + guess;
-    })
-    document.getElementById("2").addEventListener("click", function() {
-            guess = 2;
-            document.getElementById("urpredict").innerHTML = "Your prediction: " + guess;
-    })
-    document.getElementById("3").addEventListener("click", function() {
-            guess = 3;
-            document.getElementById("urpredict").innerHTML = "Your prediction: " + guess;
-    })
-    document.getElementById("4").addEventListener("click", function() {
-            guess = 4;
-            document.getElementById("urpredict").innerHTML = "Your prediction: " + guess;
-    })
-    document.getElementById("5").addEventListener("click", function() {
-            guess = 5;
-            document.getElementById("urpredict").innerHTML = "Your prediction: " + guess;
-    })
-    document.getElementById("6").addEventListener("click", function() {
-            guess = 6;
-            document.getElementById("urpredict").innerHTML = "Your prediction: " + guess;
-    })
-    document.getElementById("7").addEventListener("click", function() {
-            guess = 7;
-            document.getElementById("urpredict").innerHTML = "Your prediction: " + guess;
-    })
-    document.getElementById("8").addEventListener("click", function() {
-            guess = 8;
-            document.getElementById("urpredict").innerHTML = "Your prediction: " + guess;
-    })
+    function predict() {
+        document.getElementById("0").addEventListener("click", click0)
+        document.getElementById("1").addEventListener("click", click1)
+        document.getElementById("2").addEventListener("click", click2)
+        document.getElementById("3").addEventListener("click", click3)
+        document.getElementById("4").addEventListener("click", click4)
+        document.getElementById("5").addEventListener("click", click5)
+        document.getElementById("6").addEventListener("click", click6)
+        document.getElementById("7").addEventListener("click", click7)
+        document.getElementById("8").addEventListener("click", click8)
+    }
 
+    function runYourTurn() {
+        generateImages();
+        calculateTotal();
+        checkGuess(mainplayerwins);
+        // alert(total);
 
+        document.getElementById("correct").innerHTML = "Correct guesses: " + mainplayerwins;
+        document.querySelector('#urwins').innerHTML = mainplayerwins;
 
-
-
-    //while (mainplayerhands > 0 || p1hands > 0 || p2hands > 0 || p3hands > 0) {
-        for (let i=0; i < 4; i++) {
-                document.querySelector('#playerturn').innerHTML = 'It is ' + player[i] + ' turn';
-                chooseNumberThumbs();
-                if (handsleft[i] != mainplayerhands) {
-
-
-                        // REMOVE EVENT LISTENER
-                        // NEED TO MAKE FUNCTION FOR WHAT'S GOING ON IN ADDED EVENT LISTENER
-
-
-                        generateImages();
-                        guess = Math.floor(Math.random() * 9);
-                        calculateTotal();
-                        checkGuess(handsleft[i]);
-                }
-                else {
-                        document.getElementById("nextRound").addEventListener("click", function() {
-                                generateImages();
-                                calculateTotal();
-                                checkGuess(handsleft[i]);
-                                // alert(total);
-
-                                document.getElementById("correct").innerHTML = "Correct guesses: " + correct;
-
-                                if (correct == 2) {
-                                        document.querySelector('#winner').innerHTML = 'You WIN!';
-                                }
-                                else if (p1hands == 0 || p2hands == 0 || p3hands == 0) {
-                                        document.querySelector('#winner').innerHTML = 'You LOSE!';
-                                }
-                        })
-                }
+        if (mainplayerwins == 2) {
+                document.querySelector('#winner').innerHTML = 'You WIN!';
         }
-            // change to say whose turn it is id="playerturn" need to make array with player names
+        else if (p1wins == 2 || p2wins == 2 || p3wins == 2) {
+                document.querySelector('#winner').innerHTML = 'You LOSE!';
+        }
+    }
 
-        document.querySelector('#playerturn').innerHTML = 'It is ' + player[3] + ' turn';
-        chooseNumberThumbs();
-        document.getElementById("nextRound").addEventListener("click", function() {
-                generateImages();
-                calculateTotal();
-                checkGuess(mainplayerhands);
-                // alert(total);
+    function runBotTurn(playerwins) {
+        generateImages();
+        calculateTotal();
+        checkGuess(playerwins);
+        document.querySelector('#p3wins').innerHTML = playerwins;
+    }
 
-                document.getElementById("correct").innerHTML = "Correct guesses: " + correct;
+    function updateWinTable() {
+        document.querySelector('#p1wins').innerHTML = playerScore[0].wins;
+        document.querySelector('#p2wins').innerHTML = playerScore[1].wins;
+        document.querySelector('#p3wins').innerHTML = playerScore[2].wins;
+        document.querySelector('#urwins').innerHTML = playerScore[3].wins;
 
-                if (correct == 2) {
-                        document.querySelector('#winner').innerHTML = 'You WIN!';
-                }
-                else if (p1hands == 0 || p2hands == 0 || p3hands == 0) {
-                        document.querySelector('#winner').innerHTML = 'You LOSE!';
-                }
-        })
-        //}
-    //}
+    }
 
+    // Asked for help from AI for how to implement the player array with key:value pairs
+    // Asked for help from AI for how to loop through cycles where each player gets a turn
+    function runRound(playerIndex = 0) {
+        if (playerScore.some(playeR => playeR.wins >= 2)) {
+                endGame();
+                return;
+        }
+
+        const currentPlayer = playerScore[playerIndex];
+        document.querySelector('#playerturn').innerHTML = `It is ${currentPlayer.name} turn`;
+        document.querySelector('#nextRound').innerHTML = `Check ${currentPlayer.name}'s prediction`;
+
+        // Bot turns
+        if (currentPlayer.name !== "Your") {
+                thumbsupChosen = false;
+                document.getElementById("nextRound").disabled = true;
+                document.getElementById("0").disabled = true;
+                document.getElementById("1").disabled = true;
+                document.getElementById("2").disabled = true;
+                document.getElementById("3").disabled = true;
+                document.getElementById("4").disabled = true;
+                document.getElementById("5").disabled = true;
+                document.getElementById("6").disabled = true;
+                document.getElementById("7").disabled = true;
+                document.getElementById("8").disabled = true;
+                // random guess
+                guess = Math.floor(Math.random() * 9);
+                chooseNumberThumbs();
+                // write out current prediction
+                guessClick(currentPlayer.name);
+                // run game
+                document.getElementById("nextRound").onclick = () => {
+                        if (!thumbsupChosen) {
+                                alert("Please choose how many thumbs you're showing!");
+                                return;
+                        }
+                        generateImages();
+                        calculateTotal();
+                        checkGuess(currentPlayer);
+                        updateWinTable();
+                        // This is part where AI used to help with how to wrap around to first player again after getting to the last player
+                        // now playerIndex can go through 1,2,3,4 and then 1,2,3,4 again
+                        setTimeout(function() {
+                                runRound((playerIndex + 1) % playerScore.length)
+                        }, 1000);
+                };
+
+        }
+        // Run user turn
+        else {
+                thumbsupChosen = false;
+                guess = 0;
+
+                document.getElementById("0").disabled = false;
+                document.getElementById("1").disabled = false;
+                document.getElementById("2").disabled = false;
+                document.getElementById("3").disabled = false;
+                document.getElementById("4").disabled = false;
+                document.getElementById("5").disabled = false;
+                document.getElementById("6").disabled = false;
+                document.getElementById("7").disabled = false;
+                document.getElementById("8").disabled = false;
+                predict();
+                chooseNumberThumbs();
+
+                document.getElementById("nextRound").onclick = () => {
+                        if (!thumbsupChosen) {
+                                alert("Please choose how many thumbs you're showing!");
+                                return;
+                        }
+                        generateImages();
+                        calculateTotal();
+                        checkGuess(currentPlayer);
+                        updateWinTable();
+                        runRound((playerIndex + 1) % playerScore.length);
+                };
+        }
+    }
+
+    predict();
+    chooseNumberThumbs();
+    runRound();
+
+/*
+                document.getElementById("0").removeEventListener("click", click0())
+                document.getElementById("1").removeEventListener("click", click1())
+                document.getElementById("2").removeEventListener("click", click2())
+                document.getElementById("3").removeEventListener("click", click3())
+                document.getElementById("4").removeEventListener("click", click4())
+                document.getElementById("5").removeEventListener("click", click5())
+                document.getElementById("6").removeEventListener("click", click6())
+                document.getElementById("7").removeEventListener("click", click7())
+                document.getElementById("8").removeEventListener("click", click8())
+
+                // P1 TURN
+                // bot's prediction
+                document.querySelector('#playerturn').innerHTML = 'It is ' + player[0] + ' turn';
+                document.querySelector('#nextRound').innerHTML = 'Check ' + player[0] + ' prediction';
+                chooseNumberThumbs();
+                guess = Math.floor(Math.random() * 9);
+                guessClick(player[0]);
+                // change functionality of event listener
+                document.getElementById("nextRound").removeEventListener("click", runYourTurn)
+                document.getElementById("nextRound").addEventListener("click", function() {
+                        runBotTurn(p1wins);
+                        document.querySelector('#p1wins').innerHTML = p1wins;
+                        // alert("p1wins = " + p1wins);
+
+                        // P2 TURN
+                        document.querySelector('#playerturn').innerHTML = 'It is ' + player[1] + ' turn';
+                        document.querySelector('#nextRound').innerHTML = 'Check ' + player[1] + ' prediction';
+                        guess = Math.floor(Math.random() * 9);
+                        guessClick(player[1]);
+                        document.getElementById("nextRound").removeEventListener("click", runYourTurn)
+                        document.getElementById("nextRound").addEventListener("click", function() {
+                                runBotTurn(p2wins);
+                                document.querySelector('#p2wins').innerHTML = p2wins;
+                                //alert("p2wins = " + p2wins);
+
+                                // P3 TURN
+                                document.querySelector('#playerturn').innerHTML = 'It is ' + player[2] + ' turn';
+                                document.querySelector('#nextRound').innerHTML = 'Check ' + player[2] + ' prediction';
+                                guess = Math.floor(Math.random() * 9);
+                                guessClick(player[2]);
+                                document.getElementById("nextRound").removeEventListener("click", runYourTurn)
+                                document.getElementById("nextRound").addEventListener("click", function() {
+                                        runBotTurn(p3wins);
+                                        document.querySelector('#p3wins').innerHTML = p3wins;
+                                        //alert("p3wins = " + p3wins);
+
+                                        // YOUR TURN
+                                        document.querySelector('#playerturn').innerHTML = 'It is ' + player[3] + ' turn';
+                                        document.querySelector('#nextRound').innerHTML = 'Check ' + player[3] + ' prediction';
+                                        // return prediction functionality
+                                        predict();
+                                        guessClick(player[3]);
+                                        // change functionality of event listener and run your turn
+                                        // document.getElementById("nextRound").removeEventListener("click", runBotTurn(p1wins))
+                                        // document.getElementById("nextRound").removeEventListener("click", runBotTurn(p2wins))
+                                        // document.getElementById("nextRound").removeEventListener("click", runBotTurn(p3wins))
+                                        document.getElementById("nextRound").addEventListener("click", function() {
+                                                runYourTurn();
+                                        })
+                                })
+                        })
+                })*/
 }, 3000)

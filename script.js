@@ -11,6 +11,7 @@ for (let i = 0; i < text.length; i++) {
                 }, 19*i);
 }
 
+// AI use for asynchronous functions
 function delay(miliseconds) {
         return new Promise(resolve => setTimeout(resolve, miliseconds));
 }
