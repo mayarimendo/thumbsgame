@@ -33,7 +33,7 @@ However, if the user wishes to skip the instructions, the "START" button is acti
  - styles.css
     - provides the styling for index.html AND gamepage.html
 
->*Credits/Resources__*
+>*Credits/Resources*
 >>Resources used include the CS50 Debugger Duck for general queries and Chat GPT for specific questions.
 Use of Chat GPT(also commented in code):
 >>> thinking through logic for looping turns in gamescript.js,
