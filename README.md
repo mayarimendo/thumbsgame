@@ -12,6 +12,7 @@ The purpose of the Thumbs Single-Player Game is to allow a single player, the us
 
 >second screenshot here
 
+
 >hyperlink to video explanation
 
 >So what does the user do in the game?
