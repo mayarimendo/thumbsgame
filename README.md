@@ -11,7 +11,7 @@ The purpose of the Thumbs Single-Player Game is to allow a single player, the us
 
 >second screenshot here
 
->$##hyperlink to video explanation##$
+>hyperlink to video explanation
 
 >So what does the user do in the game?
 In the online single-player version, the user can, at any given time, select the number of thumbs they will have up before checking if the bot or user prediction is correct.
@@ -20,7 +20,7 @@ When it's not the user's turn, the button for the user to make a prediction will
 >>__explain instructions thing__
 
 >The file structure of the game is as follows:
-- index.html
+>>- index.html
     - "start" webpage that has instructions for the game and how it's played
 - script.js
     - script for index.html: displays the instructions and lets the user proceed to the game page
