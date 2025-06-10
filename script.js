@@ -6,22 +6,22 @@ let text = "HOW TO PLAY: Each 'player' will take turns calling out the number of
 let instructions = document.getElementById("instructions");
 
 for (let i = 0; i < text.length; i++) {
-        setTimeout(function() {
-                instructions.textContent = instructions.textContent + text[i];
-                }, 19*i);
+    setTimeout(function() {
+        instructions.textContent = instructions.textContent + text[i];
+    }, 19 * i);
 }
 
 // AI use for asynchronous functions
 function delay(miliseconds) {
-        return new Promise(resolve => setTimeout(resolve, miliseconds));
+    return new Promise(resolve => setTimeout(resolve, miliseconds));
 }
 
 // add event listener to click start button
 let startButton = document.getElementById("start")
 
-startButton.addEventListener("click", async function (){
-        startButton.style.backgroundColor = "green";
-        await delay(20);
-        startButton.style.backgroundColor = "white";
-        await delay(400);
+startButton.addEventListener("click", async function() {
+    startButton.style.backgroundColor = "green";
+    await delay(20);
+    startButton.style.backgroundColor = "white";
+    await delay(400);
 })

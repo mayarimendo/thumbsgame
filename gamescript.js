@@ -8,7 +8,7 @@ setTimeout(function() {
 
 // Display starting screen
 setTimeout(function() {
-    document.getElementById("gametable").style.display ='block';
+    document.getElementById("gametable").style.display = 'block';
     document.getElementById("urgreen").style.display = 'block';
     document.getElementById("label").style.display = 'block';
     document.getElementById("nextRound").style.display = 'block';
@@ -50,49 +50,41 @@ setTimeout(function() {
     let images = ["none-png.webp", "thumb up-png.png", "two thumbs.webp"]
 
     function calculateTotal() {
-            total = 0;
-            if (document.getElementById("p1image").src.split("/").pop() == "none-png.webp") {
-                    total = total;
-                    // alert("player1 =0");
-            }
-            else if (document.getElementById("p1image").src.split("/").pop() == "thumb%20up-png.png") {
-                    total = total + 1;
-                    // alert("player1 =1");
-            }
-            else if (document.getElementById("p1image").src.split("/").pop() == "two%20thumbs.webp") {
-                    total = total + 2;
-                    // alert("player1 =2");
-            }
-            //player2
-            if (document.getElementById("p2image").src.split("/").pop() == "none-png.webp") {
-                    total = total;
-            }
-            else if (document.getElementById("p2image").src.split("/").pop() == "thumb%20up-png.png") {
-                    total = total + 1;
-            }
-            else if (document.getElementById("p2image").src.split("/").pop() == "two%20thumbs.webp") {
-                    total = total + 2;
-            }
-            //player3
-            if (document.getElementById("p3image").src.split("/").pop() == "none-png.webp") {
-                    total = total;
-            }
-            else if (document.getElementById("p3image").src.split("/").pop() == "thumb%20up-png.png") {
-                    total = total + 1;
-            }
-            else if (document.getElementById("p3image").src.split("/").pop() == "two%20thumbs.webp") {
-                    total = total + 2;
-            }
-            //mainplayer
-            if (document.getElementById("MPimage").src.split("/").pop() == "none-png.webp") {
-                    total = total;
-            }
-            else if (document.getElementById("MPimage").src.split("/").pop() == "thumb%20up-png.png") {
-                    total = total + 1;
-            }
-            else if (document.getElementById("MPimage").src.split("/").pop() == "two%20thumbs.webp") {
-                    total = total + 2;
-            }
+        total = 0;
+        if (document.getElementById("p1image").src.split("/").pop() == "none-png.webp") {
+            total = total;
+            // alert("player1 =0");
+        } else if (document.getElementById("p1image").src.split("/").pop() == "thumb%20up-png.png") {
+            total = total + 1;
+            // alert("player1 =1");
+        } else if (document.getElementById("p1image").src.split("/").pop() == "two%20thumbs.webp") {
+            total = total + 2;
+            // alert("player1 =2");
+        }
+        //player2
+        if (document.getElementById("p2image").src.split("/").pop() == "none-png.webp") {
+            total = total;
+        } else if (document.getElementById("p2image").src.split("/").pop() == "thumb%20up-png.png") {
+            total = total + 1;
+        } else if (document.getElementById("p2image").src.split("/").pop() == "two%20thumbs.webp") {
+            total = total + 2;
+        }
+        //player3
+        if (document.getElementById("p3image").src.split("/").pop() == "none-png.webp") {
+            total = total;
+        } else if (document.getElementById("p3image").src.split("/").pop() == "thumb%20up-png.png") {
+            total = total + 1;
+        } else if (document.getElementById("p3image").src.split("/").pop() == "two%20thumbs.webp") {
+            total = total + 2;
+        }
+        //mainplayer
+        if (document.getElementById("MPimage").src.split("/").pop() == "none-png.webp") {
+            total = total;
+        } else if (document.getElementById("MPimage").src.split("/").pop() == "thumb%20up-png.png") {
+            total = total + 1;
+        } else if (document.getElementById("MPimage").src.split("/").pop() == "two%20thumbs.webp") {
+            total = total + 2;
+        }
     }
 
     function checkGuess(playerwins) {
