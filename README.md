@@ -1,4 +1,4 @@
-![Screenshot1] (Gamescreenshot1.png)
+![Screenshot1](Gamescreenshot1.png)
 
 # Thumbs Single-Player Game
 >The Thumbs Single-Player Game website is the online version of a multiplayer game.
