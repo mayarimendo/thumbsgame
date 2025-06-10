@@ -1,4 +1,4 @@
->![Screenshot1] (Gamescreenshot1.png)
+![Screenshot1] (Gamescreenshot1.png)
 
 # Thumbs Single-Player Game
 >The Thumbs Single-Player Game website is the online version of a multiplayer game.
@@ -10,7 +10,7 @@ If a player has 2 wins, they win the game.
 In this version of the game, there are four players, and the user is playing against 3 bots, or a player that does automated tasks.
 The purpose of the Thumbs Single-Player Game is to allow a single player, the user, to play the thumbs game alone, in the absence of other *real* players to play against.
 
->![Screenshot2] (Gamescreenshot2.png)
+![Screenshot2](Gamescreenshot2.png)
 
 
 >[Video explanation](https://youtu.be/a_km1-Mxofg)
