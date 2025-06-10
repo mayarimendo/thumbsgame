@@ -20,13 +20,13 @@ When it's not the user's turn, the button for the user to make a prediction will
 >>__explain instructions thing__
 
 >The file structure of the game is as follows:
->- index.html
->>- "start" webpage that has instructions for the game and how it's played
->- script.js
->>- script for index.html: displays the instructions and lets the user proceed to the game page
->- gamepage.html
->>- webpage that displays the full game
->- gamescript.js
->>- script for gamepage.html: runs the game, including creating turns, running rounds, and determining a winner
->- styles.css
->>- provides the styling for index.html AND gamepage.html
+    - index.html
+        - "start" webpage that has instructions for the game and how it's played
+    - script.js
+        - script for index.html: displays the instructions and lets the user proceed to the game page
+    - gamepage.html
+        - webpage that displays the full game
+    - gamescript.js
+        - script for gamepage.html: runs the game, including creating turns, running rounds, and determining a winner
+    - styles.css
+        - provides the styling for index.html AND gamepage.html
