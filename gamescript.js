@@ -200,7 +200,7 @@ setTimeout(function() {
 
     }
 
-    // Asked for help from AI for how to implement the player array with key:value pairs
+    // Asked for help from AI for how to implement the player array with key:value pairs instead of separate arrays
     // Asked for help from AI for how to loop through cycles where each player gets a turn (help with logic)
     function runRound(playerIndex = 0) {
         if (playerScore.some(playeR => playeR.wins >= 2)) {
